@@ -1,0 +1,21 @@
+[21:07:47.427] [INFO] storybook v10.3.4
+[21:07:47.929] [DEBUG] Getting package.json info for /home/user/typebot.io/package.json...
+[21:07:48.922] [DEBUG] Serving static files from packages/ui/assets at /
+[21:07:48.922] [INFO] Starting...
+[21:07:49.136] [WARN] No story files found for the specified pattern: src/**/*.mdx
+[21:07:49.259] [DEBUG] Starting preview..
+[21:07:49.293] [DEBUG] Using tsconfig paths for react-docgen
+[21:07:49.293] [ERROR] Failed to build the preview
+[21:07:49.296] [ERROR] [38;2;241;97;97mReferenceError: __dirname is not defined[39m
+    at Object.viteFinal (file://./.storybook/main.ts:23:27)
+    at file:///home/user/typebot.io/node_modules/storybook/dist/_node-chunks/chunk-3LP2BDDH.js:10114:36
+    at async createViteServer (file:///home/user/typebot.io/node_modules/@storybook/builder-vite/dist/index.js:1532:21)
+    at async Module.start (file:///home/user/typebot.io/node_modules/@storybook/builder-vite/dist/index.js:1557:17)
+    at async storybookDevServer (file:///home/user/typebot.io/node_modules/storybook/dist/core-server/index.js:7503:83)
+    at async buildOrThrow (file:///home/user/typebot.io/node_modules/storybook/dist/core-server/index.js:4508:12)
+    at async buildDevStandalone (file:///home/user/typebot.io/node_modules/storybook/dist/core-server/index.js:8033:41)
+    at async withTelemetry (file:///home/user/typebot.io/node_modules/storybook/dist/_node-chunks/chunk-HUYNFPPD.js:225:12)
+    at async dev (file:///home/user/typebot.io/node_modules/storybook/dist/bin/core.js:2736:3)
+    at async _Command.<anonymous> (file:///home/user/typebot.io/node_modules/storybook/dist/bin/core.js:2806:92)
+[21:07:49.299] [WARN] Broken build, fix the error above.
+You may need to refresh the browser.
