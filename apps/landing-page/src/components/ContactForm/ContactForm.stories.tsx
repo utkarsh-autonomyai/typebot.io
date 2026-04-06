@@ -13,9 +13,11 @@ export default meta;
 type Story = StoryObj<typeof ContactForm>;
 
 export const Default: Story = {
+  args: {},
+};
+
+export const WithClassName: Story = {
   args: {
-    onSubmit: (data) => {
-      console.log("Form submitted:", data);
-    },
+    className: "bg-white shadow-lg rounded-xl",
   },
 };

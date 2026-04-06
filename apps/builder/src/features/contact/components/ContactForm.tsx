@@ -7,23 +7,29 @@ import { Textarea } from "@typebot.io/ui/components/Textarea";
 import type { FormEvent } from "react";
 import { useState } from "react";
 
+type FormData = {
+  name: string;
+  email: string;
+  message: string;
+};
+
 type Props = {
-  onSubmit?: (data: { name: string; email: string; message: string }) => void;
+  onSubmit?: (data: FormData) => void;
   className?: string;
 };
 
+// Default blue color for the submit button
+const SUBMIT_BUTTON_COLOR = "#2563eb";
+
 export const ContactForm = ({ onSubmit, className }: Props) => {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (
-    field: keyof typeof formData,
-    value: string
-  ) => {
+  const handleInputChange = (field: keyof typeof formData, value: string) => {
     setFormData((prev) => ({
       ...prev,
       [field]: value,
@@ -48,7 +54,9 @@ export const ContactForm = ({ onSubmit, className }: Props) => {
 
   return (
     <form
-      className={`flex flex-col gap-4 w-full max-w-md${className ? ` ${className}` : ""}`}
+      className={`flex flex-col gap-4 w-full max-w-md${
+        className ? ` ${className}` : ""
+      }`}
       onSubmit={handleSubmit}
     >
       <Field.Root>
@@ -85,10 +93,12 @@ export const ContactForm = ({ onSubmit, className }: Props) => {
 
       <Button
         type="submit"
-        disabled={isSubmitting || !formData.name || !formData.email || !formData.message}
+        disabled={
+          isSubmitting || !formData.name || !formData.email || !formData.message
+        }
         className="self-start"
         style={{
-          backgroundColor: "#2563eb",
+          backgroundColor: SUBMIT_BUTTON_COLOR,
         }}
       >
         {isSubmitting ? "Submitting..." : "Submit"}

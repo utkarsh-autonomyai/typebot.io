@@ -8,7 +8,6 @@ export default function ContactPage() {
     email: string;
     message: string;
   }) => {
-    console.log("Form submitted:", data);
     toast({
       type: "success",
       title: "Message sent!",
