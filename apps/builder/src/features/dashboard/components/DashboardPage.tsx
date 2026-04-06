@@ -14,6 +14,9 @@ import { useWorkspace } from "@/features/workspace/WorkspaceProvider";
 import { orpc } from "@/lib/queryClient";
 import { toast } from "@/lib/toast";
 import { DashboardHeader } from "./DashboardHeader";
+import { StatsOverview } from "./StatsOverview";
+import { ActivityFeed } from "./ActivityFeed";
+import { mockDashboardStats, mockActivities } from "../constants";
 
 export const DashboardPage = () => {
   const { t } = useTranslate();
@@ -115,6 +118,12 @@ export const DashboardPage = () => {
     <div className="flex flex-col gap-2 min-h-screen">
       <Seo title={workspace?.name ?? t("dashboard.title")} />
       <DashboardHeader />
+      <div className="flex w-full justify-center">
+        <div className="flex flex-col w-full max-w-[1000px] gap-6 pt-4 px-4">
+          <StatsOverview stats={mockDashboardStats} />
+          <ActivityFeed activities={mockActivities} />
+        </div>
+      </div>
       <TypebotDndProvider>
         {isLoading ? (
           <div className="flex flex-col w-full justify-center pt-10 gap-6">
