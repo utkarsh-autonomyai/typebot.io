@@ -5,7 +5,6 @@ import {
   createRouter,
   createRootRoute,
   RouterProvider,
-  Outlet,
 } from "@tanstack/react-router";
 import "../src/assets/globals.css";
 
