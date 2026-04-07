@@ -6,22 +6,22 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const config: StorybookConfig = {
-  stories: [
-    "../src/**/*.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)",
-    "../../../packages/ui/src/**/*.stories.@(js|jsx|ts|tsx)",
-  ],
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: ["@storybook/addon-links"],
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
   docs: { autodocs: "tag" },
-  staticDirs: ["../../../packages/ui/assets"],
+  staticDirs: ["../assets"],
   viteFinal: async (config) => {
     // Filter out any duplicate React plugins to avoid RefreshRuntime conflict
     config.plugins = (config.plugins || []).filter(
-      (plugin) => plugin && typeof plugin === 'object' && 'name' in plugin && plugin.name !== 'vite:react-babel'
+      (plugin) =>
+        plugin &&
+        typeof plugin === "object" &&
+        "name" in plugin &&
+        plugin.name !== "vite:react-babel"
     );
     // Add Tailwind CSS v4 plugin for proper CSS processing
     config.plugins.push(tailwindcss());
@@ -33,7 +33,7 @@ const config: StorybookConfig = {
       ...config.resolve,
       alias: {
         ...config.resolve?.alias,
-        "@": path.resolve(__dirname, "../src"),
+        "@typebot.io/ui": path.resolve(__dirname, "../src"),
       },
     };
     return config;
