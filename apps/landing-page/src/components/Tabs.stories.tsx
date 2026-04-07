@@ -13,6 +13,10 @@ const meta: Meta<typeof Tabs.Root> = {
 export default meta;
 type Story = StoryObj<typeof Tabs.Root>;
 
+/**
+ * Default tab variant with pill-shaped background for selected tab.
+ * Suitable for content sections where visual separation is important.
+ */
 export const Default: Story = {
   render: () => (
     <Tabs.Root defaultValue="tab1">
@@ -49,6 +53,10 @@ export const Default: Story = {
   ),
 };
 
+/**
+ * Underline variant with bottom border indicator for selected tab.
+ * Provides a cleaner, minimal appearance suitable for dashboards and analytics interfaces.
+ */
 export const Underline: Story = {
   render: () => (
     <Tabs.Root defaultValue="overview">
@@ -94,9 +102,17 @@ export const Underline: Story = {
   ),
 };
 
+/**
+ * Vertical tab layout with tabs arranged in a column.
+ * Useful for settings panels and sidebar navigation where horizontal space is limited.
+ */
 export const Vertical: Story = {
   render: () => (
-    <Tabs.Root defaultValue="profile" orientation="vertical" className="w-[500px]">
+    <Tabs.Root
+      defaultValue="profile"
+      orientation="vertical"
+      className="w-[500px]"
+    >
       <Tabs.List>
         <Tabs.Tab value="profile">Profile</Tabs.Tab>
         <Tabs.Tab value="security">Security</Tabs.Tab>
@@ -115,7 +131,8 @@ export const Vertical: Story = {
         <div className="p-4 text-gray-12">
           <h3 className="font-medium mb-2">Security Settings</h3>
           <p className="text-gray-11">
-            Manage your password, two-factor authentication, and security preferences.
+            Manage your password, two-factor authentication, and security
+            preferences.
           </p>
         </div>
       </Tabs.Panel>
@@ -131,7 +148,8 @@ export const Vertical: Story = {
         <div className="p-4 text-gray-12">
           <h3 className="font-medium mb-2">Third-party Integrations</h3>
           <p className="text-gray-11">
-            Connect and manage integrations with other services and applications.
+            Connect and manage integrations with other services and
+            applications.
           </p>
         </div>
       </Tabs.Panel>

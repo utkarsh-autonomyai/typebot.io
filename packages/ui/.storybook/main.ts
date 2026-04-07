@@ -15,14 +15,17 @@ const config: StorybookConfig = {
   docs: { autodocs: "tag" },
   staticDirs: ["../assets"],
   viteFinal: async (config) => {
-    // Filter out any duplicate React plugins to avoid RefreshRuntime conflict
-    config.plugins = (config.plugins || []).filter(
-      (plugin) =>
+    // Remove duplicate React Babel plugin that causes RefreshRuntime conflicts
+    // in Vite-based Storybook when multiple plugin instances are registered
+    const isNotReactBabel = (plugin: unknown) => {
+      return (
         plugin &&
         typeof plugin === "object" &&
         "name" in plugin &&
         plugin.name !== "vite:react-babel"
-    );
+      );
+    };
+    config.plugins = (config.plugins || []).filter(isNotReactBabel);
     // Add Tailwind CSS v4 plugin for proper CSS processing
     config.plugins.push(tailwindcss());
     config.define = {
