@@ -15,6 +15,7 @@ import { Route as LayoutRouteImport } from './routes/_layout'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LayoutPricingRouteImport } from './routes/_layout/pricing'
 import { Route as LayoutOssFriendsRouteImport } from './routes/_layout/oss-friends'
+import { Route as LayoutLoginRouteImport } from './routes/_layout/login'
 import { Route as LayoutAboutRouteImport } from './routes/_layout/about'
 import { Route as LayoutSlugRouteImport } from './routes/_layout/$slug'
 import { Route as LayoutTemplatesIndexRouteImport } from './routes/_layout/templates/index'
@@ -49,6 +50,11 @@ const LayoutPricingRoute = LayoutPricingRouteImport.update({
 const LayoutOssFriendsRoute = LayoutOssFriendsRouteImport.update({
   id: '/oss-friends',
   path: '/oss-friends',
+  getParentRoute: () => LayoutRoute,
+} as any)
+const LayoutLoginRoute = LayoutLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => LayoutRoute,
 } as any)
 const LayoutAboutRoute = LayoutAboutRouteImport.update({
@@ -88,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/$slug': typeof LayoutSlugRoute
   '/about': typeof LayoutAboutRoute
+  '/login': typeof LayoutLoginRoute
   '/oss-friends': typeof LayoutOssFriendsRoute
   '/pricing': typeof LayoutPricingRoute
   '/blog/$slug': typeof LayoutBlogSlugRoute
@@ -101,6 +108,7 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/$slug': typeof LayoutSlugRoute
   '/about': typeof LayoutAboutRoute
+  '/login': typeof LayoutLoginRoute
   '/oss-friends': typeof LayoutOssFriendsRoute
   '/pricing': typeof LayoutPricingRoute
   '/blog/$slug': typeof LayoutBlogSlugRoute
@@ -116,6 +124,7 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/_layout/$slug': typeof LayoutSlugRoute
   '/_layout/about': typeof LayoutAboutRoute
+  '/_layout/login': typeof LayoutLoginRoute
   '/_layout/oss-friends': typeof LayoutOssFriendsRoute
   '/_layout/pricing': typeof LayoutPricingRoute
   '/_layout/blog/$slug': typeof LayoutBlogSlugRoute
@@ -131,6 +140,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/$slug'
     | '/about'
+    | '/login'
     | '/oss-friends'
     | '/pricing'
     | '/blog/$slug'
@@ -144,6 +154,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/$slug'
     | '/about'
+    | '/login'
     | '/oss-friends'
     | '/pricing'
     | '/blog/$slug'
@@ -158,6 +169,7 @@ export interface FileRouteTypes {
     | '/sitemap.xml'
     | '/_layout/$slug'
     | '/_layout/about'
+    | '/_layout/login'
     | '/_layout/oss-friends'
     | '/_layout/pricing'
     | '/_layout/blog/$slug'
@@ -217,6 +229,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LayoutOssFriendsRouteImport
       parentRoute: typeof LayoutRoute
     }
+    '/_layout/login': {
+      id: '/_layout/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LayoutLoginRouteImport
+      parentRoute: typeof LayoutRoute
+    }
     '/_layout/about': {
       id: '/_layout/about'
       path: '/about'
@@ -265,6 +284,7 @@ declare module '@tanstack/react-router' {
 interface LayoutRouteChildren {
   LayoutSlugRoute: typeof LayoutSlugRoute
   LayoutAboutRoute: typeof LayoutAboutRoute
+  LayoutLoginRoute: typeof LayoutLoginRoute
   LayoutOssFriendsRoute: typeof LayoutOssFriendsRoute
   LayoutPricingRoute: typeof LayoutPricingRoute
   LayoutBlogSlugRoute: typeof LayoutBlogSlugRoute
@@ -276,6 +296,7 @@ interface LayoutRouteChildren {
 const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutSlugRoute: LayoutSlugRoute,
   LayoutAboutRoute: LayoutAboutRoute,
+  LayoutLoginRoute: LayoutLoginRoute,
   LayoutOssFriendsRoute: LayoutOssFriendsRoute,
   LayoutPricingRoute: LayoutPricingRoute,
   LayoutBlogSlugRoute: LayoutBlogSlugRoute,
