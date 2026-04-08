@@ -19,7 +19,8 @@
       "!.codex",
       "!.cursor",
       "!.factory",
-      "!.gemini"
+      "!.gemini",
+      "!.storybook/**"
     ]
   },
   "css": {
