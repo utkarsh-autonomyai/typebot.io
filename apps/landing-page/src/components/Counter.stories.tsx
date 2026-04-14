@@ -13,16 +13,18 @@ export default meta;
 type Story = StoryObj<typeof Counter>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    initialCount: 0,
+  },
 };
 
-export const CustomStart: Story = {
+export const WithInitialValue: Story = {
   args: {
     initialCount: 10,
   },
 };
 
-export const DisabledState: Story = {
+export const Disabled: Story = {
   args: {
     initialCount: 5,
     disabled: true,
