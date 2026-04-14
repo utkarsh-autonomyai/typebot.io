@@ -22,16 +22,18 @@ export const Counter = React.forwardRef<HTMLDivElement, CounterProps>(
           disabled && "opacity-50"
         )}
       >
-        <div className="text-4xl font-bold text-gray-12">{count}</div>
+        <div className="border-2 border-blue-9 rounded-md px-6 py-2">
+          <div className="text-4xl font-bold text-gray-12">{count}</div>
+        </div>
 
         <div className="flex gap-3">
           <button
             onClick={decrement}
             disabled={disabled}
             className={cn(
-              "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors cursor-pointer select-none shrink-0",
+              "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-base font-medium transition-colors cursor-pointer select-none shrink-0",
               "focus-visible:ring-2 focus-visible:ring-orange-8 outline-hidden",
-              "h-9 px-4 py-2",
+              "h-12 px-6 py-3",
               disabled
                 ? "pointer-events-none opacity-50"
                 : "bg-gray-3 hover:bg-gray-4 active:bg-gray-5"
@@ -45,9 +47,9 @@ export const Counter = React.forwardRef<HTMLDivElement, CounterProps>(
             onClick={reset}
             disabled={disabled}
             className={cn(
-              "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors cursor-pointer select-none shrink-0",
+              "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-base font-medium transition-colors cursor-pointer select-none shrink-0",
               "focus-visible:ring-2 focus-visible:ring-orange-8 outline-hidden",
-              "h-9 px-4 py-2",
+              "h-12 px-6 py-3",
               disabled
                 ? "pointer-events-none opacity-50"
                 : "bg-gray-3 hover:bg-gray-4 active:bg-gray-5"
@@ -61,9 +63,9 @@ export const Counter = React.forwardRef<HTMLDivElement, CounterProps>(
             onClick={increment}
             disabled={disabled}
             className={cn(
-              "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors cursor-pointer select-none shrink-0",
+              "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-base font-medium transition-colors cursor-pointer select-none shrink-0",
               "focus-visible:ring-2 focus-visible:ring-orange-8 outline-hidden",
-              "h-9 px-4 py-2",
+              "h-12 px-6 py-3",
               disabled
                 ? "pointer-events-none opacity-50"
                 : "bg-orange-9 hover:bg-orange-10 active:bg-orange-11 text-gray-1 dark:text-gray-12"
